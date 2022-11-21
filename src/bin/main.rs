@@ -48,7 +48,7 @@ fn main() {
     // with the amount of threads we want passed in, in this case 4
     let pool = ThreadPool::new(4);
 
-    /* 
+    
     for stream in listener.incoming(){
         let stream = stream.unwrap();
         //we want using the threadpool to be similar to spawned threads so
@@ -63,13 +63,14 @@ fn main() {
         });
         
     }
-    */
+    
     //the loop above is good for constantly running the server
     //here we are going to use our termination we implemented to do 2 tasks
     // and terminate afterward
     //listener.incoming() returns an iterator of the incoming requests
     // we call the .take() method which creates a new iterator yeilding
     // the first x elements, 2 in this case
+    /*
     for stream in listener.incoming().take(2){
         let stream = stream.unwrap();
 
@@ -78,6 +79,7 @@ fn main() {
         });
 
     }
+    */
     //now when the main function ends, the ThreadPool goes out of scope and 
     // is dropped thus the drop() function is called because of the Drop trait
     // being implemented, all of the workers get Terminate signals and everything
